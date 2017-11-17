@@ -328,33 +328,34 @@ function sendToBOT(senderID, message) {
 });
 
 request.on('response', function(response) {
-    console.log(response);
-    if(response){
-      const result= response.result;
-      if(result){
-        const fulfillment = result.fulfillment;
-        if(fulfillment && fulfillment.speech && fulfillment.speech.length >0){
-        sendTextMessage(senderID, fulfillment.speech);
-        }
-        else{
-          const action =result.action;
-          const parameters = result.parameters);
-          console.log('action', action);
-          console.log('parameters',parameters);
-          switch (action) {
-            case 'account.balance':
-            sendTextMessage(senterID, 'get account balance');
-            break;
-            case 'account.movement':
-            sendTextMessage(senterID, 'get account movement');
-            default:
-            console.log('unknown action..');
-            break;
+        console.log(response);
+        if(response){
+          const result = response.result;
+          if(result){
+            const fulfillment =result.fulfillment;
+            if(fulfillment&&fulfillment.speech&&fulfillment.speech.length > 0){
+              sendTextMessage(senderID, fulfillment.speech);
+            }
+            else{
+              const action =result.action;
+              const parameters =result.action;
+              console.log('action: ',action);
+              console.log('parameters: ', parameters);
+              switch(action){
+                case 'account.balance':
+                sendTextMessage(senderID, 'get account balance');
+                break;
+                case 'account.movement':
+                sendTextMessage(senderID, 'get account movement');
+                break;
+                default:
+                console.log('unknown action...');
+                break;
+              }
+            }
           }
         }
-      }
-    }
-});
+    });
 
 request.on('error', function(error) {
     console.log(error);
