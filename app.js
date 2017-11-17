@@ -355,7 +355,7 @@ request.on('response', function(response) {
             }
           }
         }
-    });
+});
 
 request.on('error', function(error) {
     console.log(error);
