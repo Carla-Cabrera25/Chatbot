@@ -339,7 +339,7 @@ request.on('response', function(response) {
         else{
           const action =result.action;
           const parameters = result.parameters);
-          console.log('actiojn',action);
+          console.log('action', action);
           console.log('parameters',parameters);
           switch (action) {
             case 'account.balance':
