@@ -342,9 +342,11 @@ request.on('response', function(response) {
           console.log('actiojn',action);
           console.log('parameters',parameters);
           switch (action) {
-            case 'acconunt.balance':
+            case 'account.balance':
+            sendTextMessage(senterID, 'get account balance');
+            break;
+            case 'account.movement':
             sendTextMessage(senterID, 'get account movement');
-              break;
             default:
             console.log('unknown action..');
             break;
