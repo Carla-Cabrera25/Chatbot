@@ -336,6 +336,20 @@ request.on('response', function(response) {
         if(fulfillment && fulfillment.speech && fulfillment.speech.length >0){
         sendTextMessage(senderID, fulfillment.speech);
         }
+        else{
+          const action =result.action;
+          const parameters = result.parameters);
+          console.log('actiojn',action);
+          console.log('parameters',parameters);
+          switch (action) {
+            case 'acconunt.balance':
+            sendTextMessage(senterID, 'get account movement');
+              break;
+            default:
+            console.log('unknown action..');
+            break;
+          }
+        }
       }
     }
 });
